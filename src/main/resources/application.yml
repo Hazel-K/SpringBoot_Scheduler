@@ -1,0 +1,31 @@
+server:
+  port: 10010
+  servlet:
+    context-path: /
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+spring:
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@ip:port:ORCL
+    username: username
+    password: password#1
+mybatis:
+  mapper-locations:
+  - classpath:kr/co/ex/biz/**/*.xml
+  
+logging:
+  pattern:
+    file: "[%d{HH:mm:ss.SSS}][%-5level][%logger.%method:line%line] - %msg%n"
+  file:
+    name: "local path"
+  logback:
+    rollingpolicy:
+      file-name-pattern: "local path"
+      max-history: 365
+  level:
+    #root: debug
+    '[kr.co.ex.biz]': debug
